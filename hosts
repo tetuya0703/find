@@ -1,0 +1,1 @@
+ansible-target ansible_host=192.168.3.128 ansible_port=22 ansible_user=tetuya ansible_ssh_key_file=~/.ssh/id_rsa

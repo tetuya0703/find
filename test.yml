@@ -1,0 +1,24 @@
+---
+- name: find module test
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    
+    - name: find test
+      find:
+        paths: "/srv"
+        patterns: "functions.php"
+        recurse: "yes"
+        file_type: "file"
+      register: find_result
+
+    - name: setting phpmailer
+      blockinfile:
+        dest: "{{ item.path }}"
+        marker: "/* ANSIBLE MANAGED BLOCK */"
+        content: |
+          add_filter( 'wp_mail_from', function() {
+              return tetuya0703@me.com;
+          );
+      with_items: "{{ find_result.files }}"
