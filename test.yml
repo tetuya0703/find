@@ -22,3 +22,11 @@
               return tetuya0703@me.com;
           );
       with_items: "{{ find_result.files }}"
+
+    - name: replace mail from
+      lineinfile:
+        dest: /srv/wordpress/wp-includes/pluggable.php
+        state: present
+        backrefs: yes
+        regexp: \$phpmailer\-\>setFrom\(.\$from_email*
+        line: \t$phpmailer->setFrom( tetuya0703@me.com
