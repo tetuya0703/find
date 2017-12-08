@@ -19,7 +19,7 @@
         marker: "/* ANSIBLE MANAGED BLOCK */"
         content: |
           add_filter( 'wp_mail_from', function() {
-              return tetuya0703@me.com;
+              return ****@**.***;
           );
       with_items: "{{ find_result.files }}"
 
@@ -29,4 +29,4 @@
         state: present
         backrefs: yes
         regexp: \$phpmailer\-\>setFrom\(.\$from_email*
-        line: \t$phpmailer->setFrom( ****@**.com
+        line: \t$phpmailer->setFrom( ****@**.***
